@@ -41,7 +41,7 @@ describe 'ApplicationController' do
         "username"=> "kittens1265", "password" => "crazycatlady"
       }
       follow_redirect!
-      expect(last_response.body).to include('Welcome kittens1265')
+      expect(last_response.body).to include('Welcome skittles123')
     end
 
     it "displays the correct balance based on session[:user_id]" do
@@ -49,7 +49,7 @@ describe 'ApplicationController' do
         "username"=> "kittens1265", "password" => "crazycatlady"
       }
       follow_redirect!
-      expect(last_response.body).to include('10000')
+      expect(last_response.body).to include('1000.0')
     end
 
     it "displays a 'Log Out' link" do
@@ -97,7 +97,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
-    
+
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
